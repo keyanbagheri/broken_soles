@@ -4,24 +4,12 @@ var express = require('express');
 var app = express();
 var port = process.env.PORT || 3000;
 var dbConfig = require('./db/config.js');
+var bodyParser = require('body-parser');
 var path = require('path');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 
-
-app.use(require('body-parser').urlencoded({extended: true}));
 mongoose.connect('mongodb://localhost:27017/shoes-app');
-
-switch(app.get('env')) {
-	case 'development':
-		mongoose.connect(dbConfig.mongo.dev.conn, dbConfig.mongo.options);
-		break;
-	case 'production':
-		mongoose.connect(dbConfig.mongo.prod.conn, dbConfig.mongo.options);
-		break;
-		default:
-			throw new Error('Unknown execution environment: ' + app.get('env'));
-}
 
 
 var routes = require('./config/routes.js');
@@ -33,3 +21,4 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(routes);
 
 app.listen(port);
+console.log('server started on ' + port);
