@@ -18,8 +18,8 @@ function createShoe(request, response) {
   console.log('body:',request.body);
   var shoe = new Shoe();
 
-  shoe.name = request.body.name;
-  shoe.color = request.body.color;
+  shoe.name = request.query.name;
+  shoe.color = request.query.color;
 
   shoe.save(function(error) {
     if(error) response.json({messsage: 'Could not ceate shoe b/c:' + error});
@@ -45,8 +45,8 @@ function updateShoe(request, response) {
   Shoe.findById({_id: id}, function(error, shoe) {
     if(error) response.json({message: 'Could not find shoe b/c:' + error});
 
-    if(request.body.name) shoe.name = request.body.name;
-    if(request.body.color) shoe.color = request.body.color;
+    if(request.query.name) shoe.name = request.query.name;
+    if(request.query.color) shoe.color = request.query.color;
 
     shoe.save(function(error) {
       if(error) response.json({messsage: 'Could not update shoe b/c:' + error});
