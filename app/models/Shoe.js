@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var ShoeSchema = mongoose.Schema({
+var shoeSchema = mongoose.Schema({
 	name: String,
 	color: String
 });
