@@ -1,30 +1,30 @@
-var express = require('express'),
-    router = express.Router(),
-    bodyParser = require('body-parser'), //parses information from POST
-    methodOverride = require('method-override'); //used to manipulate POST
+var express = require('express');
+var router = express.Router();
+var bodyParser = require('body-parser'); //parses information from POST
+var methodOverride = require('method-override'); //used to manipulate POST
 
-var solesController = require('../controllers/soles');
+var shoesController = require('../controllers/shoes');
 
-// http://127.0.0.1:3000/soles
-router.route('/soles')
+// // http://127.0.0.1:3000/soles
+router.route('/shoes')
 
   //GET all soles
-  .get(solesController.getAll)
+  .get(shoesController.getAll)
 
   //POST a new blob
-  .post(solesController.createSole);
+  .post(shoesController.createShoe);
 
 
-router.route('/soles/:id')
+router.route('/shoes/:id')
 
   // GET return specific Sole
-  .get(solesFrom.kitchen :)
+  .get(shoesController.getShoe)
 
   // PATCH update existing Sole
-  .patch(solesController.updateSole)
+  .patch(shoesController.updateShoe)
 
   // DELETE remove specific Sole from DB
-  .DELETE(solesController.removeSole);
+  .delete(shoesController.removeShoe);
 
 
-module.exports = router
+module.exports = router;
