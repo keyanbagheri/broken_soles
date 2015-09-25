@@ -5,20 +5,26 @@ var express = require('express'),
 
 var shoesController = require('../controllers/shoes');
 
+// http://127.0.0.1:3000/shoes
+router.route('/shoes')
+
   //GET all shoes
-  router.get('/shoes', shoesController.getAll());
+  .get(shoesController.getAll)
 
   //POST a new blob
-  router.post('/shoes', shoesController.createShoe());
+  .post(shoesController.createShoe);
+
+
+router.route('/shoes/:id')
 
   // GET return specific Sole
-  router.get('/shoes/:id', shoesController.getShoe());
+  .get(shoesController.getShoe)
 
   // PATCH update existing Sole
-  router.patch('/shoes/:id', shoesController.updateShoes());
+  .patch(shoesController.updateShoe)
 
   // DELETE remove specific Sole from DB
-  router.delete('/shoes/:id', shoesController.removeShoes());
+  .delete(shoesController.removeShoe);
 
 
 module.exports = router;
