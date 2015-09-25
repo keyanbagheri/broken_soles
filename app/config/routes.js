@@ -3,28 +3,28 @@ var express = require('express'),
     bodyParser = require('body-parser'), //parses information from POST
     methodOverride = require('method-override'); //used to manipulate POST
 
-var solesController = require('../controllers/soles');
+var shoesController = require('../controllers/shoes');
 
-// http://127.0.0.1:3000/soles
-router.route('/soles')
+// http://127.0.0.1:3000/shoes
+router.route('/shoes')
 
-  //GET all soles
-  .get(solesController.getAll)
+  //GET all shoes
+  .get(shoesController.getAll)
 
   //POST a new blob
-  .post(solesController.createSole);
+  .post(shoesController.createSole);
 
 
-router.route('/soles/:id')
+router.route('/shoes/:id')
 
   // GET return specific Sole
-  .get(solesFrom.kitchen :)
+  .get(shoesController.getShoe)
 
   // PATCH update existing Sole
-  .patch(solesController.updateSole)
+  .patch(shoesController.updateShoes)
 
   // DELETE remove specific Sole from DB
-  .DELETE(solesController.removeSole);
+  .DELETE(shoesController.removeShoes);
 
 
 module.exports = router
