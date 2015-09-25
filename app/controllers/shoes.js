@@ -4,7 +4,7 @@ var Shoe = require('../models/Shoe');
 function getAll(request, response) { 
   Shoe.find({}, function(error, shoes) {
     if(error) response.json({message: 'Could not find any shoe'});
-
+    else
     response.json({shoes: shoes});
   });
 }
@@ -15,8 +15,8 @@ function createShoe(request, response) {
   console.log('body:',request.body);
   var shoe = new Shoe();
 
-  shoe.name = request.body.name;
-  shoe.color = request.body.color;
+  shoe.name = request.query.name;
+  shoe.color = request.query.color;
 
   shoe.save(function(error) {
     if(error) response.json({messsage: 'Could not ceate shoe b/c:' + error});
