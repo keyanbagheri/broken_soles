@@ -1,13 +1,12 @@
 // THIS IS OUR SHOE COLLECTION APP. HOW MANY SHOES DO YOU HAVE IN YOUR COLLECTION? GET THIS APP TO WORK AND YOU WILL BE ABLE TO KEEP TRACK OF ALL YOUR CRAZY SHOES
 
-var path = require('path');
-var logger = require('morgan');
 var express = require('express');
 var app = express();
-var dbConfig = require('./db/config.js');
 var port = process.env.PORT || 3000;
-var app = express();
+var dbConfig = require('./db/config.js');
 var bodyParser = require('body-parser');
+var path = require('path');
+var logger = require('morgan');
 
 var mongoose = require('mongoose');
 
@@ -24,3 +23,4 @@ require('./db/seed.js').seedShoes();
 app.use(routes);
 
 app.listen(port);
+console.log('server started on ' + port);

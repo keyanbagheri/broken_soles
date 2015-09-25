@@ -1,14 +1,14 @@
-var express = require('express'),
-    router = express.Router(),
-    bodyParser = require('body-parser'), //parses information from POST
-    methodOverride = require('method-override'); //used to manipulate POST
+var express = require('express');
+var router = express.Router();
+var bodyParser = require('body-parser'); //parses information from POST
+var methodOverride = require('method-override'); //used to manipulate POST
 
 var shoesController = require('../controllers/shoes');
 
-// http://127.0.0.1:3000/shoes
+// // http://127.0.0.1:3000/soles
 router.route('/shoes')
 
-  //GET all shoes
+  //GET all soles
   .get(shoesController.getAll)
 
   //POST a new blob
